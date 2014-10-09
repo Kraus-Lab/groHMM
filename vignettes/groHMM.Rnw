@@ -117,7 +117,7 @@ use can be set using \Rcode{mc.cores} option.
 
 <<use groHMM, eval=TRUE>>=
 library(groHMM)
-options(mc.cores=4)
+options(mc.cores=getCores(4))
 @
 
 \Rpackage{groHMM} uses the \Rpackage{GRanges} class from the

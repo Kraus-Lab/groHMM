@@ -30,3 +30,10 @@
                                .Platform$"dynlib.ext",
                                sep = "")))
 
+
+getCores <- function(cores)
+{
+    if (.Platform$OS.type =="windows")
+        return 1L
+    cores
+}

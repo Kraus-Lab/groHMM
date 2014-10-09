@@ -99,7 +99,7 @@ makeConsensusAnnotations <- function(ar, minGap=1L, minWidth=1000L, ...) {
             mcols(result)$gene_id <- mcols(x)$gene_id[1]
         }
         return(result)
-    }, mc.cores=10))
+    }, mc.cores=getCores(10)))
     isoforms <- unlist(isoforms)
     message("OK")
 

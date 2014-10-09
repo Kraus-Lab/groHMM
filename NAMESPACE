@@ -4,4 +4,4 @@ importFrom(IRanges, unlist, split)
 export(writeWiggle, detectTranscripts, makeConsensusAnnotations, 
     evaluateHMMInAnnotations, windowAnalysis, breakTranscriptsOnGenes, 
     combineTranscripts, getTxDensity, limitToXkb, runMetaGene, metaGene, 
-    pausingIndex, polymeraseWave)
+    pausingIndex, polymeraseWave, getCores)

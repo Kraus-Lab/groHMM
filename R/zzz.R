@@ -34,6 +34,6 @@
 getCores <- function(cores)
 {
     if (.Platform$OS.type =="windows")
-        return 1L
+        return(1L)
     cores
 }

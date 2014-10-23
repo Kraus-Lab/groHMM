@@ -9,7 +9,7 @@ citEntry(entry = "Manual",
     year = "2014",
     note = "R package version 1.0.0",
     textVersion = paste("Danko CG, Chae M and Kraus WL. ",
-                "groHMM: GRO-seq analysis pipeline. ",
+                "groHMM: GRO-seq Analysis Pipeline. ",
                 "R package version 1.0.0")
 )
 

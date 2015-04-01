@@ -117,7 +117,7 @@ use can be set using \Rcode{mc.cores} option.
 
 <<use groHMM, eval=TRUE>>=
 library(groHMM)
-options(mc.cores=getCores(4))
+options(mc.cores=detectCores())
 @
 
 \Rpackage{groHMM} uses the \Rpackage{GRanges} class from the
@@ -226,7 +226,7 @@ Holdout parameters are used to optimize the performance of HMM predictions
 on known genes.
 
 
-ubsection{Evaluation of Transcript Calling}
+\subsection{Evaluation of Transcript Calling}
 Predicted transcripts are evaluated by comparison to known annotations, making
 the assumption that GRO-seq transcripts should largely be in agreement with
 available annotations.  Two types of error may occur, as described
@@ -352,7 +352,8 @@ And also size of transcripts and annotations are
 scaled to a smaller unit, \emph{i.e.}, 1K for a visual representation.
 Here best overlapped annotations or transcripts
 are used for either `merged annotations' or  `dissociated a single annotation'
-type of error.  Final quality metrics are represented as an AUC number.
+type of error.  Final quality metrics are represented as TUA (Transcription 
+Unit Accuracy).
 
 <<expressed genes, eval=TRUE>>=
 getExpressedAnnotations <- function(features, reads) {
@@ -383,6 +384,35 @@ td
 \caption{Transcript Density Plot}
 \label{Figure:2}
 \end{figure}
+
+\subsection{Working with non-mammalian Genomes}
+If your target of study is non-mammalian, you can retrieve the relevant annotations
+from the Bioconductor if they are supported.  You can check the availability with
+the function \Rfunction{supportedUCSCtable} in \Rpackage{GenomicsFeautes}.
+If the organism is not supported, you can still build consensus annotations by
+directly downloading the annotation table for the organism from the UCSC genome browser.
+The following command line shows the mysql query in linux to download protein-coding RefSeq genes
+for all chromosomes except chrM for C. Elegans saving into refgene.bed file.
+You can find more information about using MySQL for the UCSC genome browser at
+https://genome.ucsc.edu/goldenPath/help/mysql.html.
+
+<<Non-mammalian, eval=FALSE, keep.source=TRUE, results=hide>>=
+# mysql --user=genome --host=genome-mysql.cse.ucsc.edu ce10 -e \
+#  "select chrom, txStart, txEnd, name, exonCount, strand, name2 from refGene \
+#   where chrom not like chrom!='chrM' and cdsStart != cdsEnd" | tail -n +1 > refgene.bed
+
+# G <- read.table("refgene.bed", header=TRUE, stringsAsFactors=FALSE, sep="\t")
+# ce <- GRanges(G$chrom, IRanges(G$txStart, G$txEnd), strand=G$strand, \
+#               access=G$name, gene_id=G$name2)
+# ceConsensus <- makeConsensusAnnotations(ce, keytype="gene_id", \
+#                mc.cores=getOption("mc.cores"))
+@
+
+As for transcript calling, the default values for \Rfunction{detectTranscripts} were set
+for mammalian genome.  In case of C. Elegans genome, it is much smaller than human genome and
+the genes are more tightly located.  So we recommend to explore higher values
+for the transition probability from the transcribed to non-transcribed state.
+For example, you can use i.e., values >-50 instead of -200 for \Rcode{LtProbB}.
 
 
 \subsection{Repairing Transcript Calling with Annotations}

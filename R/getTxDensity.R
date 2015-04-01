@@ -40,7 +40,7 @@
 #' @param samplingRatio Numeric. Ratio of sampling for annotations.  
 #' Default: 0.1
 #' @param ... Extra argument passed to mclapply.
-#' @return Returns a list of FTD, TTD, PostTTS, and AUC. 
+#' @return Returns a list of FTD, TTD, PostTTS, and TUA. 
 #' @author Minho Chae
 #' @examples
 #' tx <- GRanges("chr7", IRanges(start=seq(1000,4000, by=1000), 
@@ -169,10 +169,10 @@ getTxDensity <- function(tx, annox, plot=TRUE, scale=1000L, nSampling=0L,
     FTD <- trap.rule(1:scale, profile[1:scale])/scale
     TTD <- trap.rule(1:scale, profile[(scale+1):(scale*2)])/scale
     PostTTS <- trap.rule(1:scale, profile[(scale*2+1):(scale*3)])/scale
-    AUC <- (TTD + (TTD - TTD*FTD))/(1 + TTD)
+    TUA <- (TTD + (TTD - FTD))/(1 + TTD)
     #message("FTD: ", round(FTD, 2), " TTD: ", round(TTD, 2), " PostTTS: ", 
     #           round(PostTTS, 2), " AUC: ", round(AUC, 2))
-    return(list(FTD=FTD, TTD=TTD, PostTTS=PostTTS, AUC=AUC))
+    return(list(FTD=FTD, TTD=TTD, PostTTS=PostTTS, TUA=TUA))
 }
 
 getWP <- function (lv, lw) {

@@ -336,14 +336,17 @@ Our quality metrics represent the following
 (see the plot below for a graphical representation):
 
 \begin{enumerate}
-  \item true transcript density (TTD)  =
+  \item true positive; gene body (TP)  =
     (gene annotation area under the curve) /(max area for matched transcripts),
-  \item true non-transcript density  (TND) =  1 - TTD,
-  \item false transcript density (FTD)  =
+  \item false negative; gene body (FN) =  1 - TP,
+  \item 5$'$ false positive; upstream region (5$'$FP)  =
     (5$'$ overhang area under the curve) /(max area for matched transcripts),
-  \item false non-transcript density (FND) =  1- FTD.
+  \item 5$'$ true negative; upstream region (5$'$TN) = TP - 5$'$FP.
 \end{enumerate}
 
+We constrained 5$'$FP and 5$'$TN so that their sum to be TP in order to
+use the upstream region only if positive number of transcipts are called in the gene body
+for the calucation of the quality metrics.
 Note that these quality metrics are conceptually very similar to true
 positive, true negative, false positive and false negative, respectively.
 During the comparison, only expressed annotations are used
@@ -370,7 +373,7 @@ u <- par("usr")
 lines(c(u[1], 0, 0, 1000, 1000, u[2]), c(0,0,u[4]-.04,u[4]-.04,0,0),
       col="red")
 legend("topright", lty=c(1,1), col=c(2,1), c("ideal", "groHMM"))
-text(c(-500,500), c(.05,.5), c("FTD", "TTD"))
+text(c(-500,500), c(.05,.5), c("FivePrimeFP", "TP"))
 td
 @
 

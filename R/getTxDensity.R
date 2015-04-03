@@ -166,13 +166,12 @@ getTxDensity <- function(tx, annox, plot=TRUE, scale=1000L, nSampling=0L,
     trap.rule <- function(x,f) {sum(diff(x)*(f[-1]+f[-length(f)]))/2}
     # Thanks to: http://tolstoy.newcastle.edu.au/R/help/05/08/9625.html
 
-    FTD <- trap.rule(1:scale, profile[1:scale])/scale
-    TTD <- trap.rule(1:scale, profile[(scale+1):(scale*2)])/scale
+    FivePrimeFP <- trap.rule(1:scale, profile[1:scale])/scale
+    TP <- trap.rule(1:scale, profile[(scale+1):(scale*2)])/scale
     PostTTS <- trap.rule(1:scale, profile[(scale*2+1):(scale*3)])/scale
-    TUA <- (TTD + (TTD - FTD))/(1 + TTD)
-    #message("FTD: ", round(FTD, 2), " TTD: ", round(TTD, 2), " PostTTS: ", 
-    #           round(PostTTS, 2), " AUC: ", round(AUC, 2))
-    return(list(FTD=FTD, TTD=TTD, PostTTS=PostTTS, TUA=TUA))
+    TUA <- (TP + (TP- FivePrimeFP))/(1 + TP)
+    return(list(FivePrimeFP=FivePrimeFP, TP=TP, PostTTS=PostTTS, TUA=TUA))
+
 }
 
 getWP <- function (lv, lw) {

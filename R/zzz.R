@@ -18,19 +18,7 @@
 ##   with this program.  If not, see <http://www.gnu.org/licenses/>.
 ##
 ##########################################################################
-.onLoad <-
-     function(libname, pkgname)
-     library.dynam("groHMM", pkgname, libname)
- 
-.onUnload <-
-     function(libpath)
-     dyn.unload(file.path(libpath,
-                          "libs",
-                          paste("groHMM",
-                                .Platform$"dynlib.ext",
-                                sep = "")))
- 
- 
+
 #' Returns the number of cores.
 #'
 #' @param cores the number of cores, it is 1 in windows platform.

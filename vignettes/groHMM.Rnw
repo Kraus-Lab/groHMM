@@ -244,7 +244,7 @@ kgdb <- TxDb.Hsapiens.UCSC.hg19.knownGene
 
 library(GenomicFeatures)
 # For refseq annotations:
-# rgdb <- makeTranscriptDbFromUCSC(genome="hg19", tablename="refGene")
+# rgdb <- makeTxDbFromUCSC(genome="hg19", tablename="refGene")
 # saveDb(hg19RGdb, file="hg19RefGene.sqlite")
 # rgdb <- loadDb("hg19RefGene.sqlite")
 kgChr7 <- transcripts(kgdb, vals=list(tx_chrom = "chr7"),

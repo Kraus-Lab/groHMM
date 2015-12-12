@@ -11,7 +11,7 @@ Authors@R: c(person("Charles", "Danko", "G", role = c("aut"),
             person("W", "Kraus", "Lee", role = c("aut", "cre"),
                 email="lee.kraus@utsouthwestern.edu"))
 Author: Charles G. Danko, Minho Chae, Andre Martins, W. Lee Kraus
-Maintainer: Anusha Nagari<anusha.nagari@utsouthwestern.edu>, W. Lee Kraus <lee.kraus@utsouthwestern.edu>
+Maintainer: Anusha Nagari <anusha.nagari@utsouthwestern.edu>, Venkat Malladi <venkat.malladi@utsouthwestern.edu>, Tulip Nandu <tulip.nandu@utsouthwestern.edu>, W. Lee Kraus <lee.kraus@utsouthwestern.edu>
 Depends:
     R (>= 3.0.2), MASS, S4Vectors,
     IRanges,

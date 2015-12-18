@@ -1,6 +1,6 @@
 Package: groHMM
-Version: 1.5.0
-Date: 2015-7-21
+Version: 1.5.1
+Date: 2015-12-18
 Title: GRO-seq Analysis Pipeline.
 Authors@R: c(person("Charles", "Danko", "G", role = c("aut"),
                 email="dankoc@gmail.com"),
@@ -13,7 +13,9 @@ Authors@R: c(person("Charles", "Danko", "G", role = c("aut"),
 Author: Charles G. Danko, Minho Chae, Andre Martins, W. Lee Kraus
 Maintainer: Anusha Nagari <anusha.nagari@utsouthwestern.edu>, Venkat Malladi <venkat.malladi@utsouthwestern.edu>, Tulip Nandu <tulip.nandu@utsouthwestern.edu>, W. Lee Kraus <lee.kraus@utsouthwestern.edu>
 Depends:
-    R (>= 3.0.2), MASS, S4Vectors,
+    R (>= 3.0.2), MASS,
+    BiocGenerics,
+    S4Vectors,
     IRanges,
     GenomicRanges,
     GenomicAlignments,

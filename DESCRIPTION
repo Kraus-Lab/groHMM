@@ -28,6 +28,8 @@ Suggests:
     org.Hs.eg.db,
     TxDb.Hsapiens.UCSC.hg19.knownGene
 Description: A pipeline for the analysis of GRO-seq data.
+URL: https://github.com/Kraus-Lab/groHMM
+BugReports: https://github.com/Kraus-Lab/groHMM/issues
 License: GPL-3
 biocViews: Sequencing, Software
 LazyLoad: yes

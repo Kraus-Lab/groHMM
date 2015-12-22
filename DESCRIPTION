@@ -1,14 +1,14 @@
 Package: groHMM
 Version: 1.5.1
 Date: 2015-12-21
-Title: GRO-seq Analysis Pipeline.
-Authors@R: c(person("Charles", "Danko", "G", role = c("aut"),
+Title: GRO-seq Analysis Pipeline
+Authors@R: c(person("Charles G.", "Danko", role = c("aut"),
                 email="dankoc@gmail.com"),
             person("Minho", "Chae", role = c("aut", "cre"),
                 email="minho.chae@gmail.com"),
             person("Andre", "Martins", role = c("ctb"),
                 email="alm253@cornell.edu"),
-            person("W", "Kraus", "Lee", role = c("aut", "cre"),
+            person("W. Lee", "Kraus", role = c("aut", "cre"),
                 email="lee.kraus@utsouthwestern.edu"))
 Author: Charles G. Danko, Minho Chae, Andre Martins, W. Lee Kraus
 Maintainer: Anusha Nagari <anusha.nagari@utsouthwestern.edu>, Venkat Malladi <venkat.malladi@utsouthwestern.edu>, Tulip Nandu <tulip.nandu@utsouthwestern.edu>, W. Lee Kraus <lee.kraus@utsouthwestern.edu>

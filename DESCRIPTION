@@ -21,6 +21,8 @@ Depends:
     GenomicAlignments,
     rtracklayer,
     parallel
+Imports:
+    GenomeInfoDb
 Suggests:
     BiocStyle,
     GenomicFeatures,

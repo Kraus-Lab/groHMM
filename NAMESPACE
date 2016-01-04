@@ -1,6 +1,6 @@
 useDynLib(groHMM)
-import(MASS, parallel, BiocGenerics, S4Vectors, IRanges, GenomicAlignments, GenomicRanges, rtracklayer)
-importFrom(GenomeInfoDb, "seqlevels")
+import(MASS, parallel, S4Vectors, IRanges, GenomicRanges, BiocGenerics, GenomicAlignments, rtracklayer)
+importFrom(GenomeInfoDb, "seqlevels", "seqlevels<-")
 export(writeWiggle, detectTranscripts, makeConsensusAnnotations,
     evaluateHMMInAnnotations, windowAnalysis, breakTranscriptsOnGenes,
     combineTranscripts, getTxDensity, limitToXkb, runMetaGene, metaGene,

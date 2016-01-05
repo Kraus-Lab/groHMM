@@ -1,6 +1,6 @@
 Package: groHMM
-Version: 1.5.1
-Date: 2015-12-21
+Version: 1.5.2
+Date: 2016-01-05
 Title: GRO-seq Analysis Pipeline
 Authors@R: c(person("Charles G.", "Danko", role = c("aut"),
                 email="dankoc@gmail.com"),
@@ -17,12 +17,11 @@ Depends:
     BiocGenerics,
     S4Vectors,
     IRanges,
+    GenomeInfoDb,
     GenomicRanges,
     GenomicAlignments,
     rtracklayer,
     parallel
-Imports:
-    GenomeInfoDb
 Suggests:
     BiocStyle,
     GenomicFeatures,

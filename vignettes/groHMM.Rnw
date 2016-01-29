@@ -499,7 +499,7 @@ kgChr7 <- transcripts(kgdb, vals <- list(tx_chrom = "chr7"),
 map <- select(org.Hs.eg.db,
         keys=unique(unlist(mcols(kgChr7)$gene_id)),
         columns=c("SYMBOL"), keytype=c("ENTREZID"))
-missing <- elementLengths(mcols(kgChr7)[,"gene_id"]) == 0
+missing <- elementNROWS(mcols(kgChr7)[,"gene_id"]) == 0
 kgChr7 <- kgChr7[!missing,]
 
 inx <- match(unlist(mcols(kgChr7)$gene_id), map$ENTREZID)

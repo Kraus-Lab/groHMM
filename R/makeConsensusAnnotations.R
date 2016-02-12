@@ -123,7 +123,7 @@ makeConsensusAnnotations <- function(ar, minGap=1L, minWidth=1000L, ...) {
     message("Truncate overlapped ranges ... ", appendLF=FALSE)      
     # with different gene_ids
     while(!isDisjoint(noiso)) { 
-        ol <- findOverlaps(noiso, ignoreSelf=TRUE, ignoreRedundant=TRUE)
+        ol <- findOverlaps(noiso, drop.self=TRUE, drop.redundant=TRUE)
         ol_gr <- GRangesList(lapply(1:length(ol), function(x) {
                         sort(c(noiso[queryHits(ol)[x]], 
                                 noiso[subjectHits(ol)[x]])) 
@@ -156,13 +156,13 @@ makeConsensusAnnotations <- function(ar, minGap=1L, minWidth=1000L, ...) {
 }
 
 removeRedundant <- function(annox) {
-    o <- findOverlaps(annox, ignoreSelf=TRUE, type="equal", 
-            ignoreRedundant=TRUE)
+    o <- findOverlaps(annox, drop.self=TRUE, type="equal", 
+            drop.redundant=TRUE)
     if(length(o) != 0)
         annox <- annox[-subjectHits(o),]
 
-    o <- findOverlaps(annox, ignoreSelf=TRUE, type="within", 
-            ignoreRedundant=TRUE)
+    o <- findOverlaps(annox, drop.self=TRUE, type="within", 
+            drop.redundant=TRUE)
     if(length(o) != 0)
         annox <- annox[-queryHits(o),]
 

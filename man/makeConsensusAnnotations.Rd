@@ -36,8 +36,8 @@ To change the number of processors, use the argument 'mc.cores'.
 ## Not run:
 # library(TxDb.Hsapiens.UCSC.hg19.knownGene)
 # txdb <- TxDb.Hsapiens.UCSC.hg19.knownGene
-# tx <- transcripts(txdb, vals=list(tx_chrom="chr7"),
-# columns=c("gene_id", "tx_id", "tx_name"))
+# tx <- transcripts(txdb, columns=c("gene_id", "tx_id", "tx_name"),
+#                         filter=list(tx_chrom="chr7"))
 # tx <- tx[grep("random", as.character(seqnames(tx)), invert=TRUE),]
 # ca <- makeConsensusAnnotations(tx)
 }

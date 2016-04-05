@@ -247,8 +247,8 @@ library(GenomicFeatures)
 # rgdb <- makeTxDbFromUCSC(genome="hg19", tablename="refGene")
 # saveDb(hg19RGdb, file="hg19RefGene.sqlite")
 # rgdb <- loadDb("hg19RefGene.sqlite")
-kgChr7 <- transcripts(kgdb, vals=list(tx_chrom = "chr7"),
-                      columns=c("gene_id", "tx_id", "tx_name"))
+kgChr7 <- transcripts(kgdb, columns=c("gene_id", "tx_id", "tx_name"),
+                            filter=list(tx_chrom = "chr7"))
 seqlevels(kgChr7) <- seqlevelsInUse(kgChr7)
 @
 
@@ -494,8 +494,8 @@ abline(h = c(-1,1), col="blue")
 
 <<DE for annotated genes, eval=TRUE, echo=TRUE, include=FALSE>>=
 # For ucsc knownGenes
-kgChr7 <- transcripts(kgdb, vals <- list(tx_chrom = "chr7"),
-                      columns=c("gene_id", "tx_id", "tx_name"))
+kgChr7 <- transcripts(kgdb, columns=c("gene_id", "tx_id", "tx_name"),
+                            filter=list(tx_chrom="chr7"))
 map <- select(org.Hs.eg.db,
         keys=unique(unlist(mcols(kgChr7)$gene_id)),
         columns=c("SYMBOL"), keytype=c("ENTREZID"))

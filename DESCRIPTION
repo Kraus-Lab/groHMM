@@ -1,5 +1,5 @@
 Package: groHMM
-Version: 1.6.0
+Version: 1.7.0
 Date: 2016-02-11
 Title: GRO-seq Analysis Pipeline
 Authors@R: c(person("Charles G.", "Danko", role = c("aut"),

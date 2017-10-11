@@ -22,16 +22,16 @@ savewd = getwd()
 
 \newcommand{\exitem}[3]{\item \Rcode{\textbackslash#1\{#2\}} #3 \csname#1\endcsname{#2}.}
 
-
 \title{\Rpackage{groHMM} Tutorial}
-\author{Minho Chae\textsuperscript{1,2} \and Charles G. Danko\textsuperscript{3}
-\and W. Lee Kraus\textsuperscript{1,2}\footnote{Correspondence: lee.kraus@utsouthwestern.edu}
-\and \\\textsuperscript{1}Laboratory of Signaling and Gene Regulation \\ Cecil H. \& Ida Green Center for Reproductive Biology Science\\
-\textsuperscript{2}Division of Basic Sciences, Department of Obstetrics and Gynecology
-\\UT Southwestern Medical Center, Dallas, Texas, 75390-8511 \\
-\\\textsuperscript{3} Baker Institute for Animal Health, College of Veterinary Medicine \\
-Cornell University, Ithaca, NY 14853
+\author{
+\author[1,2]{Minho Chae}
+\author[3]{ Charles G. Danko}
+\author[1,2]{W. Lee Kraus\thanks{\email{lee.kraus@utsouthwestern.edu}}}
+\affil[1]{Laboratory of Signaling and Gene Regulation,Division of Basic Sciences, Department of Obstetrics and Gynecology}
+\affil[2]{Cecil H. \& Ida Green Center for Reproductive Biology Science, UT Southwestern Medical Center, Dallas, Texas, 75390-8511}
+\affil[3]{Baker Institute for Animal Health, College of Veterinary Medicine,Cornell University, Ithaca, NY 14853}
 }
+
 \date{\today}
 
 \maketitle
@@ -247,8 +247,8 @@ library(GenomicFeatures)
 # rgdb <- makeTxDbFromUCSC(genome="hg19", tablename="refGene")
 # saveDb(hg19RGdb, file="hg19RefGene.sqlite")
 # rgdb <- loadDb("hg19RefGene.sqlite")
-kgChr7 <- transcripts(kgdb, columns=c("gene_id", "tx_id", "tx_name"),
-                            filter=list(tx_chrom = "chr7"))
+kgChr7 <- transcripts(kgdb, vals=list(tx_chrom = "chr7"),
+                      columns=c("gene_id", "tx_id", "tx_name"))
 seqlevels(kgChr7) <- seqlevelsInUse(kgChr7)
 @
 
@@ -494,12 +494,12 @@ abline(h = c(-1,1), col="blue")
 
 <<DE for annotated genes, eval=TRUE, echo=TRUE, include=FALSE>>=
 # For ucsc knownGenes
-kgChr7 <- transcripts(kgdb, columns=c("gene_id", "tx_id", "tx_name"),
-                            filter=list(tx_chrom="chr7"))
+kgChr7 <- transcripts(kgdb, vals <- list(tx_chrom = "chr7"),
+                      columns=c("gene_id", "tx_id", "tx_name"))
 map <- select(org.Hs.eg.db,
         keys=unique(unlist(mcols(kgChr7)$gene_id)),
         columns=c("SYMBOL"), keytype=c("ENTREZID"))
-missing <- elementNROWS(mcols(kgChr7)[,"gene_id"]) == 0
+missing <- elementLengths(mcols(kgChr7)[,"gene_id"]) == 0
 kgChr7 <- kgChr7[!missing,]
 
 inx <- match(unlist(mcols(kgChr7)$gene_id), map$ENTREZID)

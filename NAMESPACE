@@ -1,0 +1,14 @@
+useDynLib(groHMM)
+import(MASS, parallel, S4Vectors, IRanges, GenomeInfoDb, GenomicRanges, GenomicAlignments, rtracklayer)
+export(writeWiggle, detectTranscripts, makeConsensusAnnotations,
+    evaluateHMMInAnnotations, windowAnalysis, breakTranscriptsOnGenes,
+    combineTranscripts, getTxDensity, limitToXkb, runMetaGene, metaGene,
+    pausingIndex, polymeraseWave, getCores, averagePlot, countMappableReadsInInterval,
+    expressedGenes, metaGeneMatrix, metaGene_nL, readBed, RgammaMLE, Rnorm,
+    Rnorm.exp, tlsDeming, tlsLoess, tlsSvd)
+ importFrom("grDevices", "rgb")
+  importFrom("graphics", "abline", "axis", "hist", "par", "plot.new",
+             "plot.window", "rect", "text", "title")
+  importFrom("stats", "dexp", "dgamma", "dnorm", "fisher.test",
+             "ks.test", "loess", "ppois", "predict", "qnorm", "smooth")
+  importFrom("utils", "read.table")

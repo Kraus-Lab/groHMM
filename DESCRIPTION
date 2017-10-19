@@ -1,0 +1,37 @@
+Package: groHMM
+Version: 1.11.0
+Date: 2016-02-11
+Title: GRO-seq Analysis Pipeline
+Authors@R: c(person("Charles G.", "Danko", role = c("aut"),
+                email="dankoc@gmail.com"),
+            person("Minho", "Chae", role = c("aut"),
+                email="minho.chae@gmail.com"),
+            person("Andre", "Martins", role = c("ctb"),
+                email="alm253@cornell.edu"),
+            person("W. Lee", "Kraus", role = c("aut"),
+                email="lee.kraus@utsouthwestern.edu"),
+	    person("Anusha", "Nagari", role = c("cre"),
+                email="anusha.nagari@utsouthwestern.edu"))
+Author: Charles G. Danko, Minho Chae, Andre Martins, W. Lee Kraus
+Maintainer: Anusha Nagari <anusha.nagari@utsouthwestern.edu>, Tulip Nandu <tulip.nandu@utsouthwestern.edu>, W. Lee Kraus <lee.kraus@utsouthwestern.edu>
+Depends:
+    R (>= 3.0.2), MASS,
+    parallel,
+    S4Vectors (>= 0.9.25),
+    IRanges (>= 2.5.27),
+    GenomeInfoDb,
+    GenomicRanges (>= 1.23.16),
+    GenomicAlignments,
+    rtracklayer
+Suggests:
+    BiocStyle,
+    GenomicFeatures,
+    edgeR,
+    org.Hs.eg.db,
+    TxDb.Hsapiens.UCSC.hg19.knownGene
+Description: A pipeline for the analysis of GRO-seq data.
+URL: https://github.com/Kraus-Lab/groHMM
+BugReports: https://github.com/Kraus-Lab/groHMM/issues
+License: GPL-3
+biocViews: Sequencing, Software
+LazyLoad: yes

@@ -30,8 +30,8 @@
 #' The meta-plot will be centered on the transcription start site (TSS)
 #' @param reads A GRanges object representing a set of mapped reads.  
 #' Instead of 'reads', 'plusCVG' and 'minusCVG' can be used  Default: NULL
-#' @param plusCVG A RangesList object for reads with '+' strand. 
-#' @param minusCVG A RangesList object for reads with '-' strand. 
+#' @param plusCVG An IntegerRangesList object for reads with '+' strand.
+#' @param minusCVG An IntegerRangesList object for reads with '-' strand.
 #' @param size The size of the moving window.
 #' @param up Distance upstream of each features to align and histogram. 
 #' Default: 10 kb.

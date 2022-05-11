@@ -1,10 +1,6 @@
 Package: groHMM
 Version: 1.31.0
-<<<<<<< HEAD
-Date: 2016-02-11
-=======
 Date: 2021-11-18
->>>>>>> upstream/master
 Title: GRO-seq Analysis Pipeline
 Authors@R: c(person("Charles G.", "Danko", role = c("aut"),
                 email="dankoc@gmail.com"),
@@ -21,21 +17,12 @@ Maintainer: Anusha Nagari <anusha.nagari@utsouthwestern.edu>, Tulip Nandu <tulip
 Depends:
     R (>= 3.0.2), MASS,
     parallel,
-<<<<<<< HEAD
-    S4Vectors (>= 0.9.25),
-    IRanges (>= 2.5.27),
-    GenomeInfoDb,
-    GenomicRanges (>= 1.23.16),
-    GenomicAlignments,
-    rtracklayer
-=======
     S4Vectors (>= 0.17.25),
     IRanges (>= 2.13.12),
     GenomeInfoDb,
     GenomicRanges (>= 1.31.8),
     GenomicAlignments (>= 1.15.6),
     rtracklayer (>= 1.39.7)
->>>>>>> upstream/master
 Suggests:
     BiocStyle,
     GenomicFeatures,

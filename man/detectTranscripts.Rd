@@ -27,11 +27,8 @@ parameter.}
 \item{UTS}{Varience in read counts of the untranscribed sequence.
 Default: 5.}
 
-<<<<<<< HEAD
-\item{size}{Numeric. The size of the moving window. Default: 50 bp.}
-=======
 \item{size}{Log probability of t... .  Default: -5.}
->>>>>>> upstream/master
+
 
 \item{threshold}{Threshold change in total likelihood, below which EM exits.}
 

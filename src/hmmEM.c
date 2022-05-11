@@ -37,7 +37,6 @@
 
 
 #include <R.h> 
-#include <S.h>
 #include <Rdefines.h>
 #include <Rmath.h>
 #include <Rinternals.h>

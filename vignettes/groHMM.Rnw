@@ -87,14 +87,10 @@ This guide focuses on the most common application of the package.
 The \Rpackage{groHMM} package is available in the Bioconductor and can be
 downloaded as follows:
 <<install groHMM, eval=FALSE>>=
-<<<<<<< HEAD
-source("http://bioconductor.org/biocLite.R")
-biocLite("groHMM")
-=======
 if (!requireNamespace("BiocManager", quietly=TRUE))
     install.packages("BiocManager")
 BiocManager::install("groHMM")
->>>>>>> upstream/master
+
 @
 
 The following packages are not required to use \Rpackage{groHMM}, but they

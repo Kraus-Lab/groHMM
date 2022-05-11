@@ -87,18 +87,31 @@ This guide focuses on the most common application of the package.
 The \Rpackage{groHMM} package is available in the Bioconductor and can be
 downloaded as follows:
 <<install groHMM, eval=FALSE>>=
+<<<<<<< HEAD
 source("http://bioconductor.org/biocLite.R")
 biocLite("groHMM")
+=======
+if (!requireNamespace("BiocManager", quietly=TRUE))
+    install.packages("BiocManager")
+BiocManager::install("groHMM")
+>>>>>>> upstream/master
 @
 
 The following packages are not required to use \Rpackage{groHMM}, but they
 are used to download annotations and evaluate transcripts, and should be
 installed for this tutorial.
 <<install packages, eval=FALSE>>=
+<<<<<<< HEAD
 biocLite("GenomicFeatures")
 biocLite("org.Hs.eg.db")
 biocLite("edgeR")
 biocLite("TxDb.Hsapiens.UCSC.hg19.knownGene")
+=======
+BiocManager::install("GenomicFeatures")
+BiocManager::install("org.Hs.eg.db")
+BiocManager::install("edgeR")
+BiocManager::install("TxDb.Hsapiens.UCSC.hg19.knownGene")
+>>>>>>> upstream/master
 @
 
 \section{\Rpackage{groHMM} Workflow}

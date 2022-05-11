@@ -15,9 +15,15 @@ The meta-plot will be centered on the transcription start site (TSS)}
 \item{reads}{A GRanges object representing a set of mapped reads.
 Instead of 'reads', 'plusCVG' and 'minusCVG' can be used  Default: NULL}
 
+<<<<<<< HEAD
 \item{plusCVG}{A RangesList object for reads with '+' strand.}
 
 \item{minusCVG}{A RangesList object for reads with '-' strand.}
+=======
+\item{plusCVG}{An IntegerRangesList object for reads with '+' strand.}
+
+\item{minusCVG}{An IntegerRangesList object for reads with '-' strand.}
+>>>>>>> upstream/master
 
 \item{size}{The size of the moving window.}
 

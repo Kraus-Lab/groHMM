@@ -13,7 +13,7 @@ Authors@R: c(person("Charles G.", "Danko", role = c("aut"),
 	    person("Anusha", "Nagari", role = c("cre"),
                 email="anusha.nagari@utsouthwestern.edu"))
 Author: Charles G. Danko, Minho Chae, Andre Martins, W. Lee Kraus
-Maintainer: Anusha Nagari <anusha.nagari@utsouthwestern.edu>, Tulip Nandu <tulip.nandu@utsouthwestern.edu>, W. Lee Kraus <lee.kraus@utsouthwestern.edu>
+Maintainer: Tulip Nandu <tulip.nandu@utsouthwestern.edu>, W. Lee Kraus <lee.kraus@utsouthwestern.edu>
 Depends:
     R (>= 3.0.2), MASS,
     parallel,

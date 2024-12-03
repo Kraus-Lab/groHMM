@@ -14,7 +14,7 @@
 <<style, eval=TRUE, echo=FALSE, results=tex>>=
 BiocStyle::latex(use.unsrturl=FALSE)
 savewd = getwd()
-@ 
+@
 
 \begin{document}
 \SweaveOpts{concordance=TRUE}
@@ -113,8 +113,8 @@ The data include a time course of GRO-seq data following treatment with E2
 available for each time point.  Bed files were obtained from GEO and lifted
 over to hg19 using the UCSC \Rpackage{liftOver} tool.
 In order to make the package size more manageable, we have included
-data from chromosome 7 only in 0 and 10 min. conditions.  
-\Rpackage{groHMM} supports parallel processing and the number of cores to 
+data from chromosome 7 only in 0 and 10 min. conditions.
+\Rpackage{groHMM} supports parallel processing and the number of cores to
 use can be set using \Rcode{mc.cores} option.
 
 <<use groHMM, eval=TRUE>>=
@@ -211,7 +211,7 @@ as either state.
 Sall <- sort(c(S0m, S40m))
 # hmmResult <- detectTranscripts(Sall, LtProbB=-200, UTS=5,
 #                   threshold=1)
-# Load hmmResult from the saved previous run 
+# Load hmmResult from the saved previous run
 load(system.file("extdata", "Vignette.RData", package="groHMM"))
 txHMM <- hmmResult$transcripts
 @
@@ -275,7 +275,7 @@ mcols(kgConsensus)$type <- "gene"
 
 There are two types of error that can be evaluated when comparing predicted
 transcripts with annotations.  (1) The number of transcripts
-overlapping two or more annotations, (\emph{i.e.}, these transcripts `merged annotations 
+overlapping two or more annotations, (\emph{i.e.}, these transcripts `merged annotations
 together') and (2) the number of annotations that overlap two or more
 transcripts on the same strand (\emph{i.e.}, we say that these transcript
 calls `dissociated a single annotation') must be determined.   The optimal tuning
@@ -291,7 +291,7 @@ e$eval
 \subsection{HMM Tuning}
 Here we demonstrate how the optimal value for each tuning parameters can be
 obtained by running HMM multiple times over a certain range of the parameters.
-Among the nine test cases, both the sum of errors and error rate per called transcript 
+Among the nine test cases, both the sum of errors and error rate per called transcript
 show minimal at case \#7, as shown below.  The variation of errors should be
 greater if whole chromosomes are used.
 Also, a larger set of the parameters might be used in practice.  This tunning
@@ -357,7 +357,7 @@ And also size of transcripts and annotations are
 scaled to a smaller unit, \emph{i.e.}, 1K for a visual representation.
 Here best overlapped annotations or transcripts
 are used for either `merged annotations' or  `dissociated a single annotation'
-type of error.  Final quality metrics are represented as TUA (Transcription 
+type of error.  Final quality metrics are represented as TUA (Transcription
 Unit Accuracy).
 
 <<expressed genes, eval=TRUE>>=
@@ -425,7 +425,7 @@ Prediction of transcripts by the HMM is not perfect.
 Discrepancies with the annotations will occur even after the parameters
 are optimally tuned.  Transcript calls can be `fixed' for known types
 of error by (1) breaking transcripts that have merged annotations and
-(2) combining transcripts that have dissociated a single annotation.  
+(2) combining transcripts that have dissociated a single annotation.
 The following method will generate a final set of transcripts for further analysis.
 
 <<repairing called transcripts, eval=TRUE>>=
@@ -471,7 +471,7 @@ lib.size <- c(NROW(S0mR1), NROW(S0mR2), NROW(S40mR1), NROW(S40mR2))
 d <- DGEList(counts=pcounts, lib.size=lib.size, group=group)
 d <- estimateCommonDisp(d)
 et <- exactTest(d)
-de <- decideTestsDGE(et, p=0.001, adjust="fdr")
+de <- decideTests(et, p=0.001, adjust="fdr")
 detags <- seq_len(NROW(d))[as.logical(de)]
 # Number of transcripts regulated at 40m
 cat("up: ",sum(de==1), " down: ", sum(de==-1), "\n")
@@ -520,7 +520,7 @@ d <- DGEList(counts=counts, lib.size=lib.size, group=group)
 
 d <- estimateCommonDisp(d)
 et <- exactTest(d)
-de <- decideTestsDGE(et, p=0.001, adjust="fdr")
+de <- decideTests(et, p=0.001, adjust="fdr")
 detags <- seq_len(NROW(d))[as.logical(de)]
 symbols <- mcols(kgChr7)$symbol
 # Number of unique genes regulated at 40m
